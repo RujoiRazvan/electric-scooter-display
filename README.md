@@ -1,5 +1,5 @@
 # ScooterDisplay
-Team: Rujoi, Preda, Neagu
+Team: Razvan, Andrei, Lucian
 
 # Features:
 - lights - done
@@ -9,4 +9,3 @@ Team: Rujoi, Preda, Neagu
 - low battery popup - done
 - stop application button - done
 
-Starea actuală a proiectului (20.01.2022): Bună. Singurele probleme sunt la ADC-ul prin care, cu ajutorul unui potențiometru, simulăm viteza.
