@@ -1,0 +1,141 @@
+﻿$version 11.00
+
+// This is the root component of the entire GUI application.
+$rect <20,20,220,60>
+$output false
+class WelcomeApp : Core::Group
+{
+  $rect <500,0,700,40>
+  inherited property Bounds = <0,0,480,272>;
+
+  // To do:
+  // 
+  // - The simplest way to compose the appearance of the application is to use the \
+  // 'Views' and 'Widgets' from the Gallery.
+  // 
+  // - To react to touch or keyboard events use the templates from the Gallery folder \
+  // 'Event Handlers'.
+  // 
+  // - To perform transitions (animations) use the templates from the Gallery folder \
+  // 'Effects'.
+  // 
+  // - To store values use the 'Variable', 'Array' and 'Property' templates available \
+  // in the Gallery folder 'Chora'.
+  // 
+  // - To implement behavior use the 'Method' and 'Slot Method' templates available \
+  // in the Gallery folder 'Chora'.
+  note legend Note1
+  {
+    attr Bounds = <0,290,780,490>;
+  }
+
+  // This is a filled rectangle view.
+  $rect <20,20,160,60>
+  object Views::Rectangle Rectangle
+  {
+    preset Bounds = <0,0,480,272>;
+    preset Color = #000000FF;
+  }
+
+  $rect <20,20,160,60>
+  object Views::Image Image
+  {
+    preset Bounds = <0,0,480,272>;
+    preset Bitmap = WelcomeMessage::Bitmap;
+  }
+
+  $rect <20,20,160,60>
+  object Core::SimpleTouchHandler SimpleTouchHandler
+  {
+    preset Point4 = <0,0>;
+    preset Point3 = <480,0>;
+    preset Point2 = <480,272>;
+    preset Point1 = <0,272>;
+    preset OnPress = onClick;
+  }
+
+  $rect <510,130,710,170>
+  slot onClick
+  {
+    // Leave this dialog and show another one
+      if(firstStart == 0)
+      {
+        SwitchToDialog(new Dashboard::Dashboard, FadeInOutTransition, null, null, null, null, null, null, null, null, false);
+       
+         var Core::Group welcome_dialog = (Core::Group)sender;
+         // Dismiss welcomeApp dialog
+         DismissDialog(welcome_dialog, null, null, null, null, null, false );  
+        firstStart = 1;
+     }
+  }
+
+  $rect <510,190,760,230>
+  object Effects::FadeInOutTransition FadeInOutTransition
+  {
+    preset Duration = 1000;
+  }
+
+  $rect <510,240,710,280>
+  var int32 firstStart = 0;
+
+  $rect <20,20,160,60>
+  object Views::Text Text
+  {
+    preset Bounds = <129,221,352,251>;
+    preset String = "Press to start";
+    preset Font = Resources::FontMedium;
+  }
+}
+
+// To do:
+// 
+// - Open the 'Application' component for editing. It represents your entire GUI. \
+// Use widgets, views, event handlers and effects from the Gallery to assemble there \
+// your desired GUI look and feel.
+// 
+// - Create your own GUI components, widgets, panels, etc. The Gallery folder 'Component \
+// Templates' contains for this purpose various templates you can simply add to the \
+// unit and thus start your own component development.
+// 
+// - You can add your own bitmap and font resources to the unit. Use the templates \
+// 'Bitmap Resource' and 'Font Resource' from the Gallery folder 'Resources' for \
+// this purpose.
+// 
+// - You can add here also constants to store e.g. multilingual text fragments. Use \
+// for this purpose the template 'Constant' from the Gallery folder 'Chora'.
+// 
+// - To add an interface for communication with the target device use the template \
+// 'Device Interface' from the Gallery folder 'Device'.
+note legend Note1
+{
+  attr Bounds = <20,80,710,390>;
+}
+
+// This is a font resource.
+$rect <230,20,430,60>
+$output false
+resource Resources::Font Font
+{
+  attr fontname FontName = Arial;
+  attr fontheight Height = 32;
+  attr fontquality Quality = High;
+  attr fontranges Ranges = 0x20-0xFF;
+  attr fontaspectratio AspectRatio = 1.0;
+  attr fontbold Bold = false;
+  attr fontitalic Italic = false;
+  attr fontkerning Kerning = true;
+  attr fontheightmode HeightMode = Compatible;
+  attr fontrowdistance RowDistance;
+}
+
+$rect <470,20,670,60>
+$output false
+resource Resources::Bitmap Bitmap
+{
+  attr bitmapfile FileName = .\Images\logo Trotineta.png;
+  attr bitmapformat Format = Native;
+  attr framesize FrameSize;
+  attr framedelay FrameDelay;
+  attr bitmapdithering Dithering = Auto;
+  attr bitmapmode Mode = Default;
+}

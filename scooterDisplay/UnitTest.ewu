@@ -1,0 +1,310 @@
+﻿$version 11.00
+
+$rect <10,70,210,110>
+$output false
+class TestSpeedometer : Core::Root
+{
+  $rect <670,100,870,140>
+  inherited method Init()
+  {
+    // Always invoke the inherited method.
+
+  }
+
+  $rect <670,20,870,60>
+  inherited property Bounds = <0,0,640,480>;
+
+  $rect <20,20,160,60>
+  object Views::Rectangle Rectangle
+  {
+    preset Bounds = <0,-1,640,480>;
+    preset Color = #000000FF;
+  }
+
+  $rect <20,20,160,60>
+  object Dashboard::Speedometer Speedometer
+  {
+    preset Bounds = <20,20,187,99>;
+    preset Enabled = true;
+  }
+
+  $rect <670,170,870,210>
+  object Effects::Int32Effect Int32Effect
+  {
+    preset Enabled = true;
+    preset Value2 = 25;
+    preset Outlet = ^Speedometer.Speed;
+  }
+
+  $rect <20,20,160,60>
+  object Dashboard::Speedometer Speedometer1
+  {
+    preset Bounds = <20,99,187,178>;
+    preset Speed = 12;
+  }
+
+  $rect <20,20,160,60>
+  object Dashboard::Speedometer Speedometer2
+  {
+    preset Bounds = <20,200,187,279>;
+    preset Speed = 35;
+  }
+
+  $rect <20,20,160,60>
+  object Dashboard::Speedometer Speedometer3
+  {
+    preset Bounds = <237,95,404,174>;
+    preset Speed = -35;
+  }
+}
+
+$rect <10,120,210,160>
+$output false
+class BatteryTest : Core::Root
+{
+  $rect <670,20,870,60>
+  inherited property Bounds = <0,0,640,480>;
+
+  // To do:
+  // 
+  // - Adjust the visible size of your application (the thick blue border). It should \
+  // correspond to the size of your target display.
+  // 
+  // - The simplest way to compose the appearance of the application is to use the \
+  // 'Views' and 'Widget Sets' from the Gallery.
+  // 
+  // - To react to touch or keyboard events use the templates from the Gallery folder \
+  // 'Event Handlers'.
+  // 
+  // - To perform transitions (animations) use the templates from the Gallery folder \
+  // 'Effects'.
+  // 
+  // - To store values use the 'Variable', 'Array' and 'Property' templates available \
+  // in the Gallery folder 'Chora'.
+  // 
+  // - To implement behavior use the 'Method' and 'Slot Method' templates available \
+  // in the Gallery folder 'Chora'.
+  note legend Note1
+  {
+    attr Bounds = <10,510,790,740>;
+  }
+
+  $rect <20,20,160,60>
+  object Views::Rectangle Rectangle
+  {
+    preset Bounds = <0,0,640,480>;
+    preset Color = #000000ff;
+  }
+
+  $rect <20,20,160,60>
+  object Dashboard::Battery Battery
+  {
+    preset Bounds = <42,36,102,86>;
+    preset Percentage = 1;
+  }
+
+  $rect <20,20,160,60>
+  object Dashboard::Battery Battery1
+  {
+    preset Bounds = <42,109,102,159>;
+    preset Percentage = 50;
+  }
+
+  $rect <20,20,160,60>
+  object Dashboard::Battery Battery2
+  {
+    preset Bounds = <40,178,100,228>;
+    preset Percentage = 29;
+  }
+
+  $rect <20,20,160,60>
+  object Dashboard::Battery Battery3
+  {
+    preset Bounds = <137,45,197,95>;
+    preset Percentage = 10;
+  }
+
+  $rect <20,20,160,60>
+  object Dashboard::Battery Battery4
+  {
+    preset Bounds = <133,116,193,166>;
+    preset Percentage = 100;
+  }
+}
+
+$rect <10,170,210,210>
+$output false
+class TemperatureTest : Core::Root
+{
+  $rect <670,20,870,60>
+  inherited property Bounds = <0,0,640,349>;
+
+  // To do:
+  // 
+  // - Adjust the visible size of your application (the thick blue border). It should \
+  // correspond to the size of your target display.
+  // 
+  // - The simplest way to compose the appearance of the application is to use the \
+  // 'Views' and 'Widget Sets' from the Gallery.
+  // 
+  // - To react to touch or keyboard events use the templates from the Gallery folder \
+  // 'Event Handlers'.
+  // 
+  // - To perform transitions (animations) use the templates from the Gallery folder \
+  // 'Effects'.
+  // 
+  // - To store values use the 'Variable', 'Array' and 'Property' templates available \
+  // in the Gallery folder 'Chora'.
+  // 
+  // - To implement behavior use the 'Method' and 'Slot Method' templates available \
+  // in the Gallery folder 'Chora'.
+  note legend Note1
+  {
+    attr Bounds = <10,510,790,740>;
+  }
+
+  $rect <20,20,160,60>
+  object Views::Rectangle Rectangle
+  {
+    preset Bounds = <0,2,640,351>;
+    preset Color = #000000FF;
+  }
+
+  $rect <20,20,160,60>
+  object Dashboard::Temperature Temperature
+  {
+    preset Bounds = <29,82,99,114>;
+    preset Temperatura = 0;
+  }
+
+  $rect <20,20,160,60>
+  object Dashboard::Temperature Temperature1
+  {
+    preset Bounds = <29,114,99,146>;
+    preset Temperatura = 5;
+  }
+
+  $rect <20,20,160,60>
+  object Dashboard::Temperature Temperature2
+  {
+    preset Bounds = <29,144,99,176>;
+    preset Temperatura = 10;
+  }
+
+  $rect <20,20,160,60>
+  object Dashboard::Temperature Temperature3
+  {
+    preset Bounds = <29,176,99,208>;
+    preset Temperatura = 15;
+  }
+
+  $rect <20,20,160,60>
+  object Dashboard::Temperature Temperature4
+  {
+    preset Bounds = <29,204,99,236>;
+    preset Temperatura = 20;
+  }
+
+  $rect <20,20,160,60>
+  object Dashboard::Temperature Temperature5
+  {
+    preset Bounds = <29,236,99,268>;
+    preset Temperatura = 25;
+  }
+
+  $rect <20,20,160,60>
+  object Dashboard::Temperature Temperature6
+  {
+    preset Bounds = <29,268,99,300>;
+    preset Temperatura = 30;
+  }
+
+  $rect <20,20,160,60>
+  object Dashboard::Temperature Temperature7
+  {
+    preset Bounds = <29,50,99,82>;
+    preset Temperatura = -5;
+  }
+
+  $rect <20,20,160,60>
+  object Dashboard::Temperature Temperature8
+  {
+    preset Bounds = <29,22,99,54>;
+    preset Temperatura = -10;
+  }
+
+  $rect <670,110,870,150>
+  object Effects::Int32Effect Int32Effect
+  {
+    preset Symmetric = true;
+    preset CycleDuration = 10000;
+    preset Enabled = true;
+    preset Value2 = 30;
+    preset Value1 = -10;
+    preset Outlet = ^Temperature9.Temperatura;
+  }
+
+  $rect <20,20,160,60>
+  object Dashboard::Temperature Temperature9
+  {
+    preset Bounds = <320,142,390,174>;
+    preset Temperatura = 10;
+  }
+}
+
+$rect <10,20,210,60>
+$output false
+class ButtonsTest : Core::Root
+{
+  $rect <670,20,870,60>
+  inherited property Bounds = <0,0,640,480>;
+
+  // To do:
+  // 
+  // - Adjust the visible size of your application (the thick blue border). It should \
+  // correspond to the size of your target display.
+  // 
+  // - The simplest way to compose the appearance of the application is to use the \
+  // 'Views' and 'Widget Sets' from the Gallery.
+  // 
+  // - To react to touch or keyboard events use the templates from the Gallery folder \
+  // 'Event Handlers'.
+  // 
+  // - To perform transitions (animations) use the templates from the Gallery folder \
+  // 'Effects'.
+  // 
+  // - To store values use the 'Variable', 'Array' and 'Property' templates available \
+  // in the Gallery folder 'Chora'.
+  // 
+  // - To implement behavior use the 'Method' and 'Slot Method' templates available \
+  // in the Gallery folder 'Chora'.
+  note legend Note1
+  {
+    attr Bounds = <10,510,790,740>;
+  }
+
+  $rect <20,20,160,60>
+  object Views::Rectangle Rectangle
+  {
+    preset Bounds = <0,-1,640,480>;
+    preset Color = #000000FF;
+  }
+
+  $rect <20,20,160,60>
+  object Dashboard::HornClass HornClass
+  {
+    preset Bounds = <30,110,80,160>;
+  }
+
+  $rect <20,20,160,60>
+  object Dashboard::Signal Signal
+  {
+    preset Bounds = <30,189,80,239>;
+  }
+
+  $rect <20,20,160,60>
+  object Dashboard::Light Light
+  {
+    preset Bounds = <30,21,60,72>;
+  }
+}
